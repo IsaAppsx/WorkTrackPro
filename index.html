@@ -1,116 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #333;
-    }
-    /* Header & Navigation */
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 1rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      background-color: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    h1, h2 {
-      color: #4CAF50;
-    }
-    section {
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #4CAF50;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkTrack Pro | Profesyonel İş ve Gelir Takibi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-teal: #14b8a6;
+            --primary-orange: #f97316;
+            --dark-navy: #0f172a;
+        }
+        .bg-teal-gradient { background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%); }
+        .text-teal-custom { color: #14b8a6; }
+        .bg-orange-custom { background-color: #f97316; }
+        .hover-orange:hover { background-color: #ea580c; }
+        .feature-card:hover { border-color: #2dd4bf; transform: translateY(-10px); }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Your Website Name</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="contact.html">Contact</a>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="flex justify-between items-center p-5 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 md:px-20">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-teal-gradient rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <i class="fas fa-check-circle"></i> 
+            </div>
+            <span class="text-2xl font-extrabold tracking-tight text-slate-800">WorkTrack <span class="text-teal-custom">Pro</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+            <a href="#ozellikler" class="hover:text-teal-600 transition">Özellikler</a>
+            <a href="#guvenlik" class="hover:text-teal-600 transition">Güvenlik</a>
+            <a href="#gizlilik" class="hover:text-teal-600 transition">Gizlilik</a>
+        </div>
+        <a href="#" class="bg-orange-custom text-white px-7 py-2.5 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105">Hemen İndir</a>
     </nav>
-  </header>
 
-  <main>
-    <section>
-      <h1>Privacy Policy</h1>
-      <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.</p>
+    <header class="bg-teal-gradient text-white py-24 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Zamanını Yönet, <br><span class="text-orange-300">Kazancını Artır</span></h1>
+                <p class="text-xl mb-10 opacity-90 font-light leading-relaxed">Freelancer ve profesyoneller için Flutter hızıyla geliştirilmiş, en kapsamlı iş takip asistanı.</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-12 cursor-pointer hover:opacity-80 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-12 cursor-pointer hover:opacity-80 transition">
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative">
+                <div class="relative z-10 w-64 h-64 md:w-80 md:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl border-8 border-teal-100/30">
+                     <i class="fas fa-history text-[120px] text-teal-500 animate-pulse"></i>
+                </div>
+                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-400 rounded-full blur-3xl opacity-30"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="ozellikler" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-slate-800">İşinizi Kolaylaştıran Özellikler</h2>
+            <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
+                <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-stopwatch text-teal-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Hızlı Zaman Takibi</h3>
+                <p class="text-slate-500 leading-relaxed">Mola ve mesai saatlerini saniyeler içinde kaydet, çalışma disiplinini bozma.</p>
+            </div>
+
+            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
+                <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-wallet text-orange-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Gelir Yönetimi</h3>
+                <p class="text-slate-500 leading-relaxed">Maaş, prim ve ek ödemeleri takip et. Aylık net kazancını anlık olarak izle.</p>
+            </div>
+
+            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
+                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-file-invoice text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Profesyonel Rapor</h3>
+                <p class="text-slate-500 leading-relaxed">Verilerini PDF veya Excel olarak dışa aktar, işverenlerine profesyonel sunum yap.</p>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>Information We Collect</h2>
-      <ul>
-        <li>Personal information you provide (name, email, etc.)</li>
-        <li>Non-personal information (browser, device, analytics data)</li>
-        <li>Cookies and usage data</li>
-      </ul>
+    <section id="guvenlik" class="bg-slate-900 text-white py-24 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold mb-6 italic text-teal-400">Verileriniz Size Ait.</h2>
+                <p class="text-lg opacity-80 mb-8 leading-relaxed">
+                    WorkTrack Pro'da verileriniz bulutta kaybolmaz. SQLite teknolojisi ile her şey cihazınızın güvenli hafızasında saklanır. Biyometrik koruma ile meraklı gözlerden uzak kalır.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-fingerprint text-orange-500 text-2xl"></i>
+                        <span>FaceID/Parmak İzi</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-database text-teal-500 text-2xl"></i>
+                        <span>Yerel Depolama</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-2xl">
+                <img src="https://img.icons8.com/illustrations/external-tulpahn-outline-color-tulpahn/100/external-security-data-protection-tulpahn-outline-color-tulpahn.png" alt="Security" class="mx-auto mb-6 w-32">
+                <p class="text-center font-mono text-teal-400">Biyometrik Koruma Aktif</p>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>How We Use Your Information</h2>
-      <ul>
-        <li>To provide and maintain our services</li>
-        <li>To improve website performance and user experience</li>
-        <li>To communicate with you if you contact us</li>
-        <li>To comply with legal obligations</li>
-      </ul>
-    </section>
+    <footer class="bg-white border-t border-slate-100 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500">
+            <div class="mb-6 md:mb-0">
+                <p class="font-bold text-slate-800">WorkTrack Pro</p>
+                <p class="text-sm">Profesyonel iş takip çözümü © 2026</p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="hover:text-teal-600">Gizlilik Politikası</a>
+                <a href="#" class="hover:text-teal-600">Destek</a>
+                <a href="#" class="hover:text-teal-600">İletişim</a>
+            </div>
+            <div class="mt-6 md:mt-0 flex space-x-4">
+                <i class="fab fa-twitter hover:text-teal-500 cursor-pointer"></i>
+                <i class="fab fa-linkedin hover:text-teal-500 cursor-pointer"></i>
+                <i class="fab fa-github hover:text-teal-500 cursor-pointer"></i>
+            </div>
+        </div>
+    </footer>
 
-    <section>
-      <h2>Third-Party Services</h2>
-      <p>We may use third-party services for analytics, hosting, or other purposes. They may collect information according to their own privacy policies.</p>
-    </section>
-
-    <section>
-      <h2>Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, you can contact us at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2026 Your Website Name. All rights reserved.
-  </footer>
 </body>
 </html>
