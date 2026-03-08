@@ -1,137 +1,182 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkTrack Pro | Profesyonel İş ve Gelir Takibi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-teal: #14b8a6;
-            --primary-orange: #f97316;
-            --dark-navy: #0f172a;
-        }
-        .bg-teal-gradient { background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%); }
-        .text-teal-custom { color: #14b8a6; }
-        .bg-orange-custom { background-color: #f97316; }
-        .hover-orange:hover { background-color: #ea580c; }
-        .feature-card:hover { border-color: #2dd4bf; transform: translateY(-10px); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorkTrack Pro – Smart Work Hour & Income Tracking App</title>
+<meta name="description" content="WorkTrack Pro is a professional work hour tracker and income management app. Track time, calculate earnings, manage multiple job profiles, export PDF & Excel reports. Fully offline and secure.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+:root {
+    --primary-teal: #14b8a6;
+    --primary-orange: #f97316;
+}
+.bg-teal-gradient { background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%); }
+.text-teal-custom { color: #14b8a6; }
+.bg-orange-custom { background-color: #f97316; }
+.hover-orange:hover { background-color: #ea580c; }
+.feature-card:hover { border-color: #2dd4bf; transform: translateY(-10px); }
+.nav-link.active { color: var(--primary-teal); font-weight: 600; }
+.nav-link.active::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 80%; height: 2px; background: var(--primary-teal); border-radius: 2px; }
+</style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
-    <nav class="flex justify-between items-center p-5 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 md:px-20">
-        <div class="flex items-center space-x-2">
-            <div class="w-10 h-10 bg-teal-gradient rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                <img src="app-icon.png" alt="WorkTrack Pro Icon" class="w-64 h-64 md:w-80 md:h-80 drop-shadow-2xl object-contain"> 
-            </div>
-            <span class="text-2xl font-extrabold tracking-tight text-slate-800">WorkTrack <span class="text-teal-custom">Pro</span></span>
-        </div>
-        <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
-            <a href="#ozellikler" class="hover:text-teal-600 transition">Özellikler</a>
-            <a href="#guvenlik" class="hover:text-teal-600 transition">Güvenlik</a>
-            <a href="#gizlilik" class="hover:text-teal-600 transition">Gizlilik</a>
-        </div>
-        <a href="#" class="bg-orange-custom text-white px-7 py-2.5 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105">Hemen İndir</a>
-    </nav>
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-5 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 md:px-20">
+  <div class="flex items-center space-x-2">
+    <img src="app_icon.png" alt="WorkTrack Pro Icon" class="w-30 h30 md:w-14 md:h-14+">
+    <span class="text-xl md:text-2xl font-bold tracking-tight text-slate-800">WorkTrack <span class="text-teal-custom">Pro</span></span>
+  </div>
+  <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+    <a href="#home" class="nav-link hover:text-teal-600 transition relative">Home</a>
+    <a href="#features" class="nav-link hover:text-teal-600 transition relative">Features</a>
+    <a href="#support" class="nav-link hover:text-teal-600 transition relative">Support</a>
+ </div>
+  <div class="flex space-x-3">
+    <a href="#" class="bg-orange-custom text-white px-6 py-2 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105">Download Now</a>
+    
+  </div>
+</nav>
 
-    <header class="bg-teal-gradient text-white py-24 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
-            <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
-                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Zamanını Yönet, <br><span class="text-orange-300">Kazancını Artır</span></h1>
-                <p class="text-xl mb-10 opacity-90 font-light leading-relaxed">Freelancer ve profesyoneller için Flutter hızıyla geliştirilmiş, en kapsamlı iş takip asistanı.</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-12 cursor-pointer hover:opacity-80 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-12 cursor-pointer hover:opacity-80 transition">
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center relative">
-                <div class="relative z-10 w-64 h-64 md:w-80 md:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl border-8 border-teal-100/30">
-                     <i class="fas fa-history text-[120px] text-teal-500 animate-pulse"></i>
-                </div>
-                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-400 rounded-full blur-3xl opacity-30"></div>
-            </div>
-        </div>
-    </header>
+<!-- HERO -->
+<header id="home" class="bg-teal-gradient text-white py-4 px-4 overflow-hidden" data-aos="fade-down">
+  <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between">
+    <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+      <h1 class="text-3xl md:text6xl font-black mb-6 leading-tight">WorkTrack Pro <br></h1>
+      <p class="text-lg mb-6 opacity-90 font-light leading-relaxed">
+   Track work hours and manage your income easily and securely.  </p>
+      <ul class="text-lg mb-6 list-disc pl-6 space-y-2 text-left md:text-left">
+        <li>No account required</li>
+        <li>100% Offline</li>
+        <li>Secure & Private</li>
+        <li>Multi-language & Multi-currency</li>
+      </ul>
+      <div class="flex flex-wrap justify-center md:justify-start gap-4">
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-12 hover:opacity-80 transition"></a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center relative">
+     <div class="relative w-34 md:w-61 h-[470px] md:h-[640px] bg-white rounded-[3rem] shadow-2xl overflow-hidden border-1" data-aos="fade-left">
+    <img 
+        src="trackscreen.png" 
+        alt="WorkTrack Pro Uygulama Ekranı" 
+        class="w-full h-full object-cover shadow-none"
+        style="aspect-ratio: 1283 / 2604;"
+    >
+</div>
+    </div>
+  </div>
+</header>
 
-    <section id="ozellikler" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-slate-800">İşinizi Kolaylaştıran Özellikler</h2>
-            <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
-                <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-stopwatch text-teal-600 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Hızlı Zaman Takibi</h3>
-                <p class="text-slate-500 leading-relaxed">Mola ve mesai saatlerini saniyeler içinde kaydet, çalışma disiplinini bozma.</p>
-            </div>
+<!-- FEATURES (Alternating Layouts) -->
+<section id="features" class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-slate-800">Core Features</h2>
+    <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
+  </div>
 
-            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
-                <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-wallet text-orange-600 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Gelir Yönetimi</h3>
-                <p class="text-slate-500 leading-relaxed">Maaş, prim ve ek ödemeleri takip et. Aylık net kazancını anlık olarak izle.</p>
-            </div>
+  <!-- Feature 1 -->
+  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-right">
+    <div class="md:w-1/4 md:order-2 md:pl-12 text-center md:text-left">
+      <h3 class="text-3xl font-bold mb-4">Smart Work Hour Tracking</h3>
+      <p class="text-slate-600 mb-4">Record start & end times, break duration, workday status with automatic calculations. Monthly & yearly filtering, clear dashboard overview.</p>
+    </div>
+    <div class="md:w-1/4 md:order-1">
+      <img src="trackscreen.png" alt="Tracker Dashboard" class=" rounded-[3rem]  shadow-lg">
+    </div>
+  </div>
 
-            <div class="bg-white p-10 rounded-3xl shadow-sm border-2 border-transparent feature-card transition-all duration-300">
-                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fas fa-file-invoice text-blue-600 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Profesyonel Rapor</h3>
-                <p class="text-slate-500 leading-relaxed">Verilerini PDF veya Excel olarak dışa aktar, işverenlerine profesyonel sunum yap.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Feature 2 -->
+  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-left">
+    <div class="md:w-1/4 md:pr-12 text-center md:text-left">
+      <h3 class="text-3xl font-bold mb-4">Multiple Job Profiles</h3>
+      <p class="text-slate-600 mb-4">Create separate profiles for different clients, projects, and hourly rates. Each profile supports default hours and breaks.</p>
+    </div>
+    <div class="md:w-1/4">
+      <img src="profiles.png" alt="Profile Management" class=" rounded-[3rem]  shadow-lg">
+    </div>
+  </div>
 
-    <section id="guvenlik" class="bg-slate-900 text-white py-24 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold mb-6 italic text-teal-400">Verileriniz Size Ait.</h2>
-                <p class="text-lg opacity-80 mb-8 leading-relaxed">
-                    WorkTrack Pro'da verileriniz bulutta kaybolmaz. SQLite teknolojisi ile her şey cihazınızın güvenli hafızasında saklanır. Biyometrik koruma ile meraklı gözlerden uzak kalır.
-                </p>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-fingerprint text-orange-500 text-2xl"></i>
-                        <span>FaceID/Parmak İzi</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-database text-teal-500 text-2xl"></i>
-                        <span>Yerel Depolama</span>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2 bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-2xl">
-                <img src="https://img.icons8.com/illustrations/external-tulpahn-outline-color-tulpahn/100/external-security-data-protection-tulpahn-outline-color-tulpahn.png" alt="Security" class="mx-auto mb-6 w-32">
-                <p class="text-center font-mono text-teal-400">Biyometrik Koruma Aktif</p>
-            </div>
-        </div>
-    </section>
+  <!-- Feature 3 -->
+  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-right">
+    <div class="md:w-1/4 md:order-2 md:pl-12 text-center md:text-left">
+      <h3 class="text-3xl font-bold mb-4">Income Management</h3>
+      <p class="text-slate-600 mb-4">Track salary, bonuses, side income. Add/Edit/Delete income with category filtering and automatic total calculation.</p>
+    </div>
+    <div class="md:w-1/4 md:order-1">
+      <img src="incomes.png" alt="Income Management" class=" rounded-[3rem]  shadow-lg">
+    </div>
+  </div>
+</section>
 
-    <footer class="bg-white border-t border-slate-100 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500">
-            <div class="mb-6 md:mb-0">
-                <p class="font-bold text-slate-800">WorkTrack Pro</p>
-                <p class="text-sm">Profesyonel iş takip çözümü © 2026</p>
-            </div>
-            <div class="flex space-x-6 text-sm">
-                <a href="#" class="hover:text-teal-600">Gizlilik Politikası</a>
-                <a href="#" class="hover:text-teal-600">Destek</a>
-                <a href="#" class="hover:text-teal-600">İletişim</a>
-            </div>
-            <div class="mt-6 md:mt-0 flex space-x-4">
-                <i class="fab fa-twitter hover:text-teal-500 cursor-pointer"></i>
-                <i class="fab fa-linkedin hover:text-teal-500 cursor-pointer"></i>
-                <i class="fab fa-github hover:text-teal-500 cursor-pointer"></i>
-            </div>
-        </div>
-    </footer>
+<!-- SUPPORT + FAQ -->
+<section id="support" class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-12" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-slate-800">Support & FAQ</h2>
+    <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
+  </div>
 
+  <div class="flex flex-col md:flex-row gap-12">
+    <!-- LEFT: FAQ -->
+    <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+      <div>
+        <h3 class="font-bold text-lg">Q1: Do I need an account to use WorkTrack Pro?</h3>
+        <p class="text-slate-600">No, the app is fully offline and does not require any account.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Q2: Can I export my reports?</h3>
+        <p class="text-slate-600">Yes, you can export work hours and income reports as PDF or Excel.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Q3: Is my data secure?</h3>
+        <p class="text-slate-600">All data is stored locally on your device using SQLite with optional password and biometric protection.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Support Info -->
+    <div class="md:w-1/2 bg-teal-50 p-8 rounded-3xl shadow-lg flex flex-col justify-center items-center text-center" data-aos="fade-left">
+      <p class="text-lg mb-4">For help or feedback, reach us anytime:</p>
+      <p class="font-semibold text-teal-600 text-xl mb-4">📧 <a href="mailto:isaapps.support@protonmail.com">isaapps.support@protonmail.com</a>.</p>
+      <p class="text-slate-700">We’re here to assist with any technical issues, feature questions, or general inquiries related to WorkTrack Pro.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-white border-t border-slate-100 py-12 px-6">
+  <div class="max-w-7xl mx-auto text-center text-slate-500">
+    <div class="flex justify-center space-x-6 mb-4 text-sm">
+      <a href="#support" class="hover:text-teal-600">Support</a>
+      <a href="privacy.html" class="hover:text-teal-600">Privacy Policy</a>
+      <a href="mailto:isaapps.support@protonmail.com" class="hover:text-teal-600">Contact</a>
+    </div>
+    <p class="text-sm text-slate-400">Developed by IsaApps © 2026</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 900, once: true });
+
+// Navbar scroll active
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) { link.classList.add("active"); }
+  });
+});
+</script>
 </body>
-
 </html>
