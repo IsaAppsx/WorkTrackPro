@@ -20,108 +20,107 @@
 .hover-orange:hover { background-color: #ea580c; }
 .feature-card:hover { border-color: #2dd4bf; transform: translateY(-10px); }
 .nav-link.active { color: var(--primary-teal); font-weight: 600; }
-.nav-link.active::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 80%; height: 2px; background: var(--primary-teal); border-radius: 2px; }
+.nav-link.active::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 70%; height: 2px; background: var(--primary-teal); border-radius: 2px; }
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
 <!-- NAVBAR -->
-<nav class="flex justify-between items-center p-5 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 md:px-20">
+<nav class="flex justify-between items-center p-4 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
   <div class="flex items-center space-x-2">
-    <img src="app_icon.png" alt="WorkTrack Pro Icon" class="w-30 h30 md:w-14 md:h-14+">
+    <img src="app_icon.png" alt="WorkTrack Pro Icon" class="w-12 h-12 md:w-14 md:h-14">
     <span class="text-xl md:text-2xl font-bold tracking-tight text-slate-800">WorkTrack <span class="text-teal-custom">Pro</span></span>
   </div>
-  <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+  <div class="hidden md:flex space-x-6 font-semibold text-slate-600">
     <a href="#home" class="nav-link hover:text-teal-600 transition relative">Home</a>
     <a href="#features" class="nav-link hover:text-teal-600 transition relative">Features</a>
     <a href="#support" class="nav-link hover:text-teal-600 transition relative">Support</a>
  </div>
-  <div class="flex space-x-3">
-    <a href="#" class="bg-orange-custom text-white px-6 py-2 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105">Download Now</a>
-    
+  <div class="flex space-x-2 md:space-x-3">
+    <a href="#" class="bg-orange-custom text-white px-4 py-2 md:px-6 md:py-2 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105">Download Now</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<header id="home" class="bg-teal-gradient text-white py-4 px-4 overflow-hidden" data-aos="fade-down">
-  <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between">
-    <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
-      <h1 class="text-3xl md:text6xl font-black mb-6 leading-tight">WorkTrack Pro <br></h1>
-      <p class="text-lg mb-6 opacity-90 font-light leading-relaxed">
-   Track work hours and manage your income easily and securely.  </p>
-      <ul class="text-lg mb-6 list-disc pl-6 space-y-2 text-left md:text-left">
+<header id="home" class="bg-teal-gradient text-white py-10 px-4 overflow-hidden" data-aos="fade-down">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
+    <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+      <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight">WorkTrack Pro</h1>
+      <p class="text-lg mb-4 opacity-90 font-light leading-relaxed">
+        Track work hours and manage your income easily and securely.
+      </p>
+      <ul class="text-base md:text-lg mb-6 list-disc pl-6 space-y-2 text-left">
         <li>No account required</li>
         <li>100% Offline</li>
         <li>Secure & Private</li>
         <li>Multi-language & Multi-currency</li>
       </ul>
-      <div class="flex flex-wrap justify-center md:justify-start gap-4">
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-12 hover:opacity-80 transition"></a>
+      <div class="flex flex-wrap justify-center md:justify-start gap-3">
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-10 md:h-12 hover:opacity-80 transition"></a>
       </div>
     </div>
     <div class="md:w-1/2 flex justify-center relative">
-     <div class="relative w-34 md:w-61 h-[470px] md:h-[640px] bg-white rounded-[3rem] shadow-2xl overflow-hidden border-1" data-aos="fade-left">
-    <img 
-        src="trackscreen.png" 
-        alt="WorkTrack Pro Uygulama Ekranı" 
-        class="w-full h-full object-cover shadow-none"
-        style="aspect-ratio: 1283 / 2604;"
-    >
-</div>
+      <div class="relative w-64 md:w-72 h-80 md:h-[500px] bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200" data-aos="fade-left">
+        <img 
+          src="trackscreen.png" 
+          alt="WorkTrack Pro App Screen" 
+          class="w-full h-full object-cover"
+        >
+      </div>
     </div>
   </div>
 </header>
 
-<!-- FEATURES (Alternating Layouts) -->
-<section id="features" class="py-24 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-16" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-slate-800">Core Features</h2>
-    <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
+<!-- FEATURES -->
+<section id="features" class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-12" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Core Features</h2>
+    <div class="w-16 h-1.5 bg-orange-custom mx-auto mt-3 rounded-full"></div>
   </div>
 
   <!-- Feature 1 -->
-  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-right">
-    <div class="md:w-1/4 md:order-2 md:pl-12 text-center md:text-left">
-      <h3 class="text-3xl font-bold mb-4">Smart Work Hour Tracking</h3>
-      <p class="text-slate-600 mb-4">Record start & end times, break duration, workday status with automatic calculations. Monthly & yearly filtering, clear dashboard overview.</p>
+  <div class="flex flex-col md:flex-row items-center mb-12" data-aos="fade-right">
+    <div class="md:w-1/2 md:order-2 md:pl-6 text-center md:text-left mb-4 md:mb-0">
+      <h3 class="text-2xl md:text-3xl font-bold mb-3">Smart Work Hour Tracking</h3>
+      <p class="text-slate-600">Record start & end times, break duration, workday status with automatic calculations. Monthly & yearly filtering, clear dashboard overview.</p>
     </div>
-    <div class="md:w-1/4 md:order-1">
-      <img src="trackscreen.png" alt="Tracker Dashboard" class=" rounded-[3rem]  shadow-lg">
+    <div class="md:w-1/2 md:order-1 flex justify-center">
+      <img src="trackscreen.png" alt="Tracker Dashboard" class="rounded-xl shadow-lg w-64 md:w-full h-auto">
     </div>
   </div>
 
   <!-- Feature 2 -->
-  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-left">
-    <div class="md:w-1/4 md:pr-12 text-center md:text-left">
-      <h3 class="text-3xl font-bold mb-4">Multiple Job Profiles</h3>
-      <p class="text-slate-600 mb-4">Create separate profiles for different clients, projects, and hourly rates. Each profile supports default hours and breaks.</p>
+  <div class="flex flex-col md:flex-row items-center mb-12" data-aos="fade-left">
+    <div class="md:w-1/2 md:pr-6 text-center md:text-left mb-4 md:mb-0">
+      <h3 class="text-2xl md:text-3xl font-bold mb-3">Multiple Job Profiles</h3>
+      <p class="text-slate-600">Create separate profiles for different clients, projects, and hourly rates. Each profile supports default hours and breaks.</p>
     </div>
-    <div class="md:w-1/4">
-      <img src="profiles.png" alt="Profile Management" class=" rounded-[3rem]  shadow-lg">
+    <div class="md:w-1/2 flex justify-center">
+      <img src="profiles.png" alt="Profile Management" class="rounded-xl shadow-lg w-64 md:w-full h-auto">
     </div>
   </div>
 
   <!-- Feature 3 -->
-  <div class="flex flex-col md:flex-row items-center mb-16" data-aos="fade-right">
-    <div class="md:w-1/4 md:order-2 md:pl-12 text-center md:text-left">
-      <h3 class="text-3xl font-bold mb-4">Income Management</h3>
-      <p class="text-slate-600 mb-4">Track salary, bonuses, side income. Add/Edit/Delete income with category filtering and automatic total calculation.</p>
+  <div class="flex flex-col md:flex-row items-center mb-12" data-aos="fade-right">
+    <div class="md:w-1/2 md:order-2 md:pl-6 text-center md:text-left mb-4 md:mb-0">
+      <h3 class="text-2xl md:text-3xl font-bold mb-3">Income Management</h3>
+      <p class="text-slate-600">Track salary, bonuses, side income. Add/Edit/Delete income with category filtering and automatic total calculation.</p>
     </div>
-    <div class="md:w-1/4 md:order-1">
-      <img src="incomes.png" alt="Income Management" class=" rounded-[3rem]  shadow-lg">
+    <div class="md:w-1/2 md:order-1 flex justify-center">
+      <img src="incomes.png" alt="Income Management" class="rounded-xl shadow-lg w-64 md:w-full h-auto">
     </div>
   </div>
 </section>
 
 <!-- SUPPORT + FAQ -->
-<section id="support" class="py-24 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-12" data-aos="fade-up">
-    <h2 class="text-4xl font-bold text-slate-800">Support & FAQ</h2>
-    <div class="w-20 h-1.5 bg-orange-custom mx-auto mt-4 rounded-full"></div>
+<section id="support" class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-10" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Support & FAQ</h2>
+    <div class="w-16 h-1.5 bg-orange-custom mx-auto mt-3 rounded-full"></div>
   </div>
 
-  <div class="flex flex-col md:flex-row gap-12">
-    <!-- LEFT: FAQ -->
+  <div class="flex flex-col md:flex-row gap-8">
+    <!-- FAQ -->
     <div class="md:w-1/2 space-y-6" data-aos="fade-right">
       <div>
         <h3 class="font-bold text-lg">Q1: Do I need an account to use WorkTrack Pro?</h3>
@@ -137,20 +136,19 @@
       </div>
     </div>
 
-    <!-- RIGHT: Support Info -->
-    <div class="md:w-1/2 bg-teal-50 p-8 rounded-3xl shadow-lg flex flex-col justify-center items-center text-center" data-aos="fade-left">
-      <p class="text-lg mb-4">For help or feedback, reach us anytime:</p>
-      <p class="font-semibold text-teal-600 text-xl mb-4">📧 <a href="mailto:isaapps.support@protonmail.com">isaapps.support@protonmail.com</a>.</p>
+    <!-- Support Info -->
+    <div class="md:w-1/2 bg-teal-50 p-6 md:p-8 rounded-2xl shadow-lg flex flex-col justify-center items-center text-center" data-aos="fade-left">
+      <p class="text-lg mb-3">For help or feedback, reach us anytime:</p>
+      <p class="font-semibold text-teal-600 text-lg md:text-xl mb-3">📧 <a href="mailto:isaapps.support@protonmail.com">isaapps.support@protonmail.com</a></p>
       <p class="text-slate-700">We’re here to assist with any technical issues, feature questions, or general inquiries related to WorkTrack Pro.</p>
     </div>
   </div>
 </section>
 
-
 <!-- FOOTER -->
-<footer class="bg-white border-t border-slate-100 py-12 px-6">
+<footer class="bg-white border-t border-slate-100 py-8 px-4">
   <div class="max-w-7xl mx-auto text-center text-slate-500">
-    <div class="flex justify-center space-x-6 mb-4 text-sm">
+    <div class="flex flex-wrap justify-center space-x-4 mb-4 text-sm">
       <a href="#support" class="hover:text-teal-600">Support</a>
       <a href="privacy.html" class="hover:text-teal-600">Privacy Policy</a>
       <a href="mailto:isaapps.support@protonmail.com" class="hover:text-teal-600">Contact</a>
@@ -169,7 +167,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 150;
+    const sectionTop = section.offsetTop - 100;
     if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
   });
   navLinks.forEach(link => {
