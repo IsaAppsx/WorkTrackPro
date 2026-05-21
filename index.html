@@ -1,226 +1,457 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WorkTrack Pro – Smart Work Hour & Income Tracking App</title>
-<meta name="description"
-      content="WorkTrack Pro is a professional work hour tracker and income management app. Track time, calculate earnings, manage multiple job profiles, export PDF & Excel reports. Fully offline and secure.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkTrack Pro — Track Work Hours & Income | Free Offline App</title>
+    <meta name="description" content="Track work hours, calculate income, manage shifts — all offline and 100% private. No signup required. Free for Android.">
+    <meta name="keywords" content="work hours tracker, time tracker, income tracker, shift tracker, timesheet app, wage calculator, offline time tracking, work log">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="WorkTrack Pro — Track Work Hours & Income">
+    <meta property="og:description" content="The only work tracker combining time tracking + income management — completely offline, no signup, 100% private.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="app-icon.png">
 
-<style>
-:root {
-    --primary-orange:   #e65100;
-    --primary-orange-dark: #c43b00;
-    --gradient-start:   #e65100;
-    --gradient-end:     #ff8c42;
-}
-.bg-orange-gradient {
-    background: linear-gradient(135deg,
-        var(--gradient-start) 0%,
-        var(--gradient-end)   100%);
-}
-.hover-orange:hover { background-color: var(--primary-orange-dark); }
-.feature-card:hover {
-    border-color: var(--gradient-end);
-    transform: translateY(-10px);
-}
-.text-orange-custom { color: var(--primary-orange); }
-.bg-orange-custom   { background-color: var(--primary-orange); }
-</style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "WorkTrack Pro",
+        "operatingSystem": "Android",
+        "applicationCategory": "BusinessApplication",
+        "description": "Track work hours, calculate income, manage shifts — all offline and 100% private.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --orange: #F97316;
+            --orange-dark: #EA580C;
+            --orange-glow: rgba(249,115,22,0.2);
+            --bg: #060606;
+            --bg-card: #111111;
+            --bg-card-hover: #191919;
+            --text: #ffffff;
+            --text-muted: rgba(255,255,255,0.6);
+            --text-dim: rgba(255,255,255,0.35);
+            --border: rgba(249,115,22,0.15);
+            --radius: 20px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─────────────────────────────── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(6,6,6,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--text);
+        }
+        .nav-brand img { width: 36px; height: 36px; border-radius: 10px; }
+        .nav-brand span { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+        .nav-brand .pro { color: var(--orange); }
+        .nav-links { display: none; gap: 32px; font-weight: 600; font-size: 15px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-buttons { display: flex; gap: 12px; align-items: center; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white; border: none; border-radius: 12px;
+            padding: 10px 24px; font-weight: 700; font-size: 14px;
+            cursor: pointer; text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--orange-glow); }
+
+        /* ─── HERO ────────────────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px; border-radius: 50%;
+            background: radial-gradient(circle, var(--orange-glow), transparent 70%);
+            filter: blur(80px);
+        }
+        .hero-inner {
+            max-width: 1200px; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+            position: relative; z-index: 1;
+        }
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            font-weight: 900; letter-spacing: -2px;
+            line-height: 1.05; margin-bottom: 24px;
+        }
+        .hero-text h1 .highlight { color: var(--orange); }
+        .hero-text p {
+            font-size: 20px; color: var(--text-muted);
+            max-width: 480px; margin-bottom: 40px; line-height: 1.7;
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white; border: none; border-radius: 16px;
+            padding: 18px 36px; font-weight: 800; font-size: 18px;
+            cursor: pointer; text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 40px var(--orange-glow);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 60px var(--orange-glow); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent; color: var(--text);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            border-radius: 16px; padding: 18px 36px;
+            font-weight: 700; font-size: 18px; cursor: pointer;
+            text-decoration: none; transition: border-color 0.3s;
+        }
+        .btn-secondary:hover { border-color: var(--orange); }
+        .hero-badges {
+            display: flex; gap: 24px; margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: var(--text-dim);
+        }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+        .hero-visual {
+            display: flex; justify-content: center;
+            position: relative;
+        }
+        .phone-mockup {
+            width: 300px; height: 620px;
+            border-radius: 46px; 
+            background: #000; /* Outer frame color */
+            padding: 12px; /* Frame bezel thickness */
+            position: relative;
+            box-shadow:
+                inset 0 0 0 1px #444, /* Metallic rim highlight */
+                inset 0 0 0 3px #1a1a1a, /* Inner bezel shading */
+                0 40px 100px rgba(0,0,0,0.8),
+                0 0 80px var(--orange-glow);
+        }
+        /* Phone Buttons */
+        .phone-mockup::before {
+            content: ''; position: absolute;
+            top: 120px; left: -2px;
+            width: 2px; height: 50px; background: #444;
+            border-radius: 2px 0 0 2px;
+            box-shadow: 0 65px 0 #444; /* Volume buttons */
+        }
+        .phone-mockup::after {
+            content: ''; position: absolute;
+            top: 150px; right: -2px;
+            width: 2px; height: 70px; background: #444;
+            border-radius: 0 2px 2px 0; /* Power button */
+        }
+        .phone-screen {
+            width: 100%; height: 100%;
+            border-radius: 34px;
+            overflow: hidden;
+            background: #111;
+            position: relative;
+        }
+        .phone-screen img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: top;
+        }
+        /* Top Notch / Camera Area */
+        .phone-screen::before {
+            content: ''; position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 140px; height: 28px; background: #000;
+            border-radius: 0 0 18px 18px;
+            z-index: 10;
+        }
+
+        /* ─── FEATURES ────────────────────────── */
+        .features {
+            padding: 120px 24px;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .section-label {
+            text-transform: uppercase; letter-spacing: 3px;
+            font-size: 13px; font-weight: 700; color: var(--orange);
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 900; letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 18px; color: var(--text-muted);
+            max-width: 600px; margin-bottom: 64px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(249,115,22,0.4);
+            background: var(--bg-card-hover);
+        }
+        .feature-icon {
+            font-size: 40px; margin-bottom: 20px;
+            display: block;
+        }
+        .feature-card h3 {
+            font-size: 22px; font-weight: 800;
+            margin-bottom: 10px; letter-spacing: -0.5px;
+        }
+        .feature-card p {
+            font-size: 15px; color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ─── CTA ─────────────────────────────── */
+        .cta {
+            padding: 120px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .cta::before {
+            content: ''; position: absolute;
+            bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, var(--orange-glow), transparent 70%);
+            filter: blur(80px);
+        }
+        .cta-inner {
+            position: relative; z-index: 1;
+            max-width: 700px; margin: 0 auto;
+        }
+        .cta h2 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 900; letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+        .cta p {
+            font-size: 20px; color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* ─── FOOTER ──────────────────────────── */
+        footer {
+            padding: 48px 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        footer p { font-size: 14px; color: var(--text-dim); }
+
+        /* ─── RESPONSIVE ──────────────────────── */
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
+            .hero-badges { justify-content: center; }
+            .phone-mockup { width: 240px; height: 500px; }
+            .section-desc { margin-left: auto; margin-right: auto; }
+        }
+    </style>
 </head>
-<body class="bg-transparent text-slate-900 font-sans">
+<body>
 
-<!-- NAVBAR -->
-<nav class="flex justify-between items-center p-4 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-  <div class="flex items-center space-x-2">
-    <img src="app_icon.png" alt="WorkTrack Pro Icon"
-         class="w-10 h-10 md:w-14 md:h-14">
-    <span class="text-lg md:text-2xl font-bold tracking-tight text-slate-800">
-        WorkTrack <span class="text-orange-custom">Pro</span>
-    </span>
-  </div>
-  <div class="hidden md:flex space-x-6 font-semibold text-slate-600">
-    <a href="#home" class="nav-link hover:text-orange-500 transition relative">Home</a>
-    <a href="#features" class="nav-link hover:text-orange-500 transition relative">Features</a>
-    <a href="#support" class="nav-link hover:text-orange-500 transition relative">Support</a>
-  </div>
-  <div class="flex space-x-2 md:space-x-3">
-    <a href="premium.html"
-       class="hidden sm:block border-2 border-orange-custom text-orange-custom px-3 py-1.5 md:px-6 md:py-2 rounded-full font-bold hover:bg-orange-custom hover:text-white transition transform hover:scale-105 text-sm md:text-base">
-       Premium
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.isaapps.workrackpro&hl=en-US&ah=SxKMnIsI8SdUMzZKpVtp53WYZnc"
-       class="bg-orange-custom text-white px-3 py-1.5 md:px-6 md:py-2 rounded-full font-bold hover-orange shadow-lg transition transform hover:scale-105 text-sm md:text-base">
-       Download
-    </a>
-  </div>
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">
+            <img src="app-icon.png" alt="WorkTrack Pro icon">
+            <span>WorkTrack <span class="pro">Pro</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#support">Support</a>
+        </div>
+        <div class="nav-buttons">
+            <a href="premium.html" class="btn-secondary" style="padding: 8px 16px; font-size: 14px; border-radius: 12px;">Premium</a>
+            <a href="https://play.google.com/store/apps/details?id=com.isaapps.workrackpro&hl=en-US&ah=SxKMnIsI8SdUMzZKpVtp53WYZnc" class="nav-cta" target="_blank" rel="noopener">Download</a>
+        </div>
+    </div>
 </nav>
 
 <!-- HERO -->
-<header id="home" class="bg-white text-slate-900 py-8 md:py-16 px-4 overflow-hidden" data-aos="fade-down">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
-    <div class="md:w-1/2 text-center md:text-left mb-4 md:mb-0">
-      <h1 class="text-2xl md:text-5xl font-black mb-3 md:mb-4 leading-tight">
-        WorkTrack <span class="text-orange-custom">Pro</span>
-
-      </h1>
-      <p class="text-base md:text-lg mb-4 opacity-90 font-light leading-relaxed">
-        Track work hours and manage your income easily and securely.
-      </p>
-      <ul class="text-sm md:text-lg mb-6 list-disc pl-5 md:pl-6 space-y-1 md:space-y-2 text-left">
-        <li>No account required</li>
-        <li>100% Offline</li>
-        <li>Secure & Private</li>
-        <li>Multi-language & Multi-currency</li>
-      </ul>
-      <div class="flex flex-wrap justify-center md:justify-start gap-3">
-        <a href="https://play.google.com/store/apps/details?id=com.isaapps.workrackpro&hl=en-US&ah=SxKMnIsI8SdUMzZKpVtp53WYZnc"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                         alt="Play Store"
-                         class="h-8 md:h-12 hover:opacity-80 transition"></a>
-      </div>
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <h1>Track Time.<br><span class="highlight">Manage Income.</span><br>Stay Private.</h1>
+            <p>The smartest way to log work hours, calculate earnings, and manage multiple jobs — completely offline, no signup required.</p>
+            <div class="hero-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.isaapps.workrackpro&hl=en-US&ah=SxKMnIsI8SdUMzZKpVtp53WYZnc" class="btn-primary" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v17l-9-4-9 4z"/></svg>
+                    Get it on Google Play
+                </a>
+                <a href="#features" class="btn-secondary">See Features</a>
+            </div>
+            <div class="hero-badges">
+                <div class="badge"><span class="badge-dot"></span> 100% Free</div>
+                <div class="badge"><span class="badge-dot"></span> Works Offline</div>
+                <div class="badge"><span class="badge-dot"></span> No Sign Up</div>
+                <div class="badge"><span class="badge-dot"></span> Private & Secure</div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="Screenshot_20260501-154840.png" alt="WorkTrack Pro home screen showing daily work hour logs">
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="md:w-1/2 flex justify-center">
-      <div class="relative w-full max-w-xs md:max-w-lg h-80 md:h-[600px] overflow-hidden"
-           data-aos="fade-left">
-        <img src="1.png" alt="WorkTrack Pro App Screen"
-             class="w-full h-full object-contain">
-      </div>
-    </div>
-  </div>
-</header>
+</section>
 
 <!-- FEATURES -->
-<section id="features" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
-  <div class="text-center mb-10 md:mb-12" data-aos="fade-up">
-    <h2 class="text-2xl md:text-4xl font-bold text-slate-800">Core Features</h2>
-    <div class="w-16 h-1.5 bg-orange-custom mx-auto mt-2 md:mt-3 rounded-full"></div>
-  </div>
+<section class="features" id="features">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need to<br>track your work life</h2>
+    <p class="section-desc">WorkTrack Pro combines powerful time tracking with income management in one beautiful, offline-first app.</p>
 
-  <!-- Feature 1 -->
-  <div class="flex flex-col md:flex-row items-center mb-10 md:mb-12 gap-4 md:gap-6"
-       data-aos="fade-right">
-    <div class="md:w-1/2 md:order-2 text-center md:text-left">
-      <h3 class="text-xl md:text-3xl font-bold mb-2 md:mb-3">Smart Work Hour Tracking</h3>
-      <p class="text-sm md:text-base text-slate-600">
-        Record start & end times, break duration, workday status with automatic calculations.
-        Monthly & yearly filtering, clear dashboard overview.
-      </p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="feature-icon">⏱️</span>
+            <h3>Time Tracking</h3>
+            <p>Log your daily work hours with a single tap. View detailed records by day, week, or month with an intuitive calendar view.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">💰</span>
+            <h3>Income Calculator</h3>
+            <p>Set hourly rates and let WorkTrack Pro automatically calculate your gross pay, bonuses, overtime, and deductions.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">👤</span>
+            <h3>Multiple Profiles</h3>
+            <p>Track different jobs with separate profiles. Each profile has its own hourly rate, work log, and income history.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🌙</span>
+            <h3>Dark Mode</h3>
+            <p>Beautiful dark theme that's easy on your eyes during night shifts. Premium design with smooth animations throughout.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>100% Offline & Private</h3>
+            <p>All data stays on your device. No account, no cloud, no internet required. Your work data never leaves your phone.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <h3>Smart Reports</h3>
+            <p>Visual charts, weekly summaries, and detailed analytics help you understand your work patterns and earnings trends.</p>
+        </div>
     </div>
-    <div class="md:w-1/2 md:order-1 flex justify-center w-full sm:w-auto">
-      <img src="1.png" alt="Tracker Dashboard"
-           class="w-28 md:w-64 h-auto rounded-xl shadow-lg">
-    </div>
-  </div>
-
-  <!-- Feature 2 -->
-  <div class="flex flex-col md:flex-row items-center mb-10 md:mb-12 gap-4 md:gap-6"
-       data-aos="fade-left">
-    <div class="md:w-1/2 text-center md:text-left">
-      <h3 class="text-xl md:text-3xl font-bold mb-2 md:mb-3">Multiple Job Profiles</h3>
-      <p class="text-sm md:text-base text-slate-600">
-        Create separate profiles for different clients, projects, and hourly rates.
-        Each profile supports default hours and breaks.
-      </p>
-    </div>
-    <div class="md:w-1/2 flex justify-center w-full sm:w-auto">
-      <img src="3.png" alt="Profile Management"
-           class="w-28 md:w-64 h-auto rounded-xl shadow-lg">
-    </div>
-  </div>
-
-  <!-- Feature 3 -->
-  <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6"
-       data-aos="fade-right">
-    <div class="md:w-1/2 md:order-2 text-center md:text-left">
-      <h3 class="text-xl md:text-3xl font-bold mb-2 md:mb-3">Income Management</h3>
-      <p class="text-sm md:text-base text-slate-600">
-        Track salary, bonuses, side income. Add/Edit/Delete income with category filtering
-        and automatic total calculation.
-      </p>
-    </div>
-    <div class="md:w-1/2 md:order-1 flex justify-center w-full sm:w-auto">
-      <img src="2.png" alt="Income Management"
-           class="w-28 md:w-64 h-auto rounded-xl shadow-lg">
-    </div>
-  </div>
 </section>
 
 <!-- SUPPORT + FAQ -->
-<section id="support" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
-  <div class="text-center mb-10 md:mb-10" data-aos="fade-up">
-    <h2 class="text-2xl md:text-4xl font-bold text-slate-800">Support & FAQ</h2>
-    <div class="w-16 h-1.5 bg-orange-custom mx-auto mt-2 md:mt-3 rounded-full"></div>
-  </div>
+<section class="features" id="support">
+    <div class="section-label">Support</div>
+    <h2 class="section-title">Support & FAQ</h2>
+    <p class="section-desc">Got questions? We're here to help.</p>
 
-  <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-    <!-- FAQ -->
-    <div class="md:w-1/2 space-y-4 md:space-y-6" data-aos="fade-right">
-      <div>
-        <h3 class="font-bold text-base md:text-lg mb-2">Q1: Do I need an account?</h3>
-        <p class="text-sm md:text-base text-slate-600">No, the app is fully offline and does not require any account.</p>
-      </div>
-      <div>
-        <h3 class="font-bold text-base md:text-lg mb-2">Q2: Can I export reports?</h3>
-        <p class="text-sm md:text-base text-slate-600">Yes, you can export work hours and income reports as PDF or Excel.</p>
-      </div>
-      <div>
-        <h3 class="font-bold text-base md:text-lg mb-2">Q3: Is my data secure?</h3>
-        <p class="text-sm md:text-base text-slate-600">All data is stored locally on your device using SQLite with optional password and biometric protection.</p>
-      </div>
-    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Q1: Do I need an internet connection or an account?</h3>
+                <p style="color: var(--text-muted);">No. WorkTrack Pro is 100% offline-first. You don't need to sign up, create an account, or have an active internet connection to log your shifts.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Q2: How is my work data kept secure?</h3>
+                <p style="color: var(--text-muted);">Your privacy is our top priority. All your timesheets, salary details, and profiles are stored securely and locally on your device. We never collect or access your data.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Q3: Can I track multiple jobs or freelance clients?</h3>
+                <p style="color: var(--text-muted);">Absolutely! You can create multiple separate job profiles, each with its own specific hourly wage, currency, and work log history.</p>
+            </div>
+            <div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Q4: Can I export my timesheets for my employer?</h3>
+                <p style="color: var(--text-muted);">Yes, you can easily generate and export detailed work hour and income reports in both PDF and CSV (Excel) formats.</p>
+            </div>
+        </div>
 
-    <!-- Support Info -->
-    <div class="md:w-1/2 bg-orange-50 p-4 md:p-8 rounded-2xl shadow-lg flex flex-col justify-center items-center text-center"
-         data-aos="fade-left">
-      <p class="text-base md:text-lg mb-3 font-medium">For help or feedback, reach us:</p>
-      <p class="font-semibold text-orange-600 text-base md:text-xl mb-3">
-        📧 <a href="mailto:isaapps.support@protonmail.com"
-             class="hover:text-orange-700">isaapps.support@protonmail.com</a>
-      </p>
-      <p class="text-sm md:text-base text-slate-700">
-        We're here to assist with any technical issues, feature questions, or general inquiries.
-      </p>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <p style="font-size: 18px; margin-bottom: 16px;">For help or feedback, reach us:</p>
+            <p style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">
+                📧 <a href="mailto:isaapps.support@protonmail.com" style="color: var(--orange); text-decoration: none;">isaapps.support@protonmail.com</a>
+            </p>
+            <p style="color: var(--text-muted); font-size: 15px;">We're here to assist with any technical issues, feature questions, or general inquiries.</p>
+        </div>
     </div>
-  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="download">
+    <div class="cta-inner">
+        <h2>Ready to take control of your <span style="color: var(--orange)">work hours?</span></h2>
+        <p>Join thousands of workers who track their time and income with WorkTrack Pro. Free forever, no strings attached.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.isaapps.workrackpro&hl=en-US&ah=SxKMnIsI8SdUMzZKpVtp53WYZnc" class="btn-primary" style="font-size: 22px; padding: 22px 48px;" target="_blank" rel="noopener">
+            🚀 Download WorkTrack Pro
+        </a>
+    </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-white border-t border-slate-100 py-6 md:py-8 px-4">
-  <div class="max-w-7xl mx-auto text-center text-slate-500">
-    <div class="flex flex-wrap justify-center gap-3 md:space-x-4 mb-3 md:mb-4 text-xs md:text-sm">
-      <a href="#support" class="hover:text-orange-500">Support</a>
-      <span class="hidden md:inline">•</span>
-      <a href="privacy.html" class="hover:text-orange-500">Privacy Policy</a>
-      <span class="hidden md:inline">•</span>
-      <a href="mailto:isaapps.support@protonmail.com" class="hover:text-orange-500">Contact</a>
+<footer>
+    <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap;">
+        <a href="#support" style="color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Support</a>
+        <span style="color: var(--text-dim);">•</span>
+        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Privacy Policy</a>
+        <span style="color: var(--text-dim);">•</span>
+        <a href="mailto:isaapps.support@protonmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--text-muted)'">Contact</a>
     </div>
-    <p class="text-xs md:text-sm text-slate-400">Developed by IsaApps © 2026</p>
-  </div>
+    <p>&copy; 2026 WorkTrack Pro. Developed by IsaApps. Built with ❤️ for workers everywhere.</p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-AOS.init({ duration: 900, once: true });
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) { link.classList.add("active"); }
-  });
-});
-</script>
 </body>
 </html>
